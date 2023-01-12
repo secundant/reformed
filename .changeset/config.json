@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "secundant/product-template" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "secundant/reformed" }],
   "commit": false,
   "fixed": [],
   "linked": [],

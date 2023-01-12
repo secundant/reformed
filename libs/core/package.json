@@ -1,0 +1,25 @@
+{
+  "name": "@reformed/core",
+  "description": "Framework agnostic forms",
+  "packageManager": "yarn@3.2.0",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "yarn dlx rimraf dist",
+    "build": "autobuild",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@neodx/autobuild": "0.0.4",
+    "@swc/helpers": "0.4.14",
+    "eslint": "8.31.0",
+    "eslint-kit": "6.11.0",
+    "typescript": "4.9.4",
+    "vitest": "0.27.1"
+  },
+  "dependencies": {
+    "patronum": "1.14.1"
+  }
+}
