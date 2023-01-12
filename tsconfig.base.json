@@ -25,12 +25,11 @@
     "allowJs": false,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "noPropertyAccessFromIndexSignature": true,
     "importsNotUsedAsValues": "error",
     "importHelpers": true,
     "sourceMap": false,
     "noErrorTruncation": false,
     "pretty": true
   },
-  "exclude": ["node_modules", "tmp", "dist"]
+  "exclude": ["node_modules", "**/dist"]
 }
