@@ -1428,23 +1428,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/cli@npm:15.4.8":
-  version: 15.4.8
-  resolution: "@nrwl/cli@npm:15.4.8"
+"@nrwl/cli@npm:15.5.1":
+  version: 15.5.1
+  resolution: "@nrwl/cli@npm:15.5.1"
   dependencies:
-    nx: 15.4.8
-  checksum: 7d4e73aaf2c37fdeb06233696e07fc48e7de81d2cb1a7fe66a5de24b89d3306fe145049cc4a3129089fa3857313255ae336ecc36701e8c8130bd98a662a18584
+    nx: 15.5.1
+  checksum: 6fac24afa5bb7dcaf05a974342d79337e359be6cc52e600d83598729527a3005d28d2697b44acca422bc1967e760008e930c6b32026c34f3fe9d67e2f4faf61e
   languageName: node
   linkType: hard
 
-"@nrwl/tao@npm:15.4.8":
-  version: 15.4.8
-  resolution: "@nrwl/tao@npm:15.4.8"
+"@nrwl/tao@npm:15.5.1":
+  version: 15.5.1
+  resolution: "@nrwl/tao@npm:15.5.1"
   dependencies:
-    nx: 15.4.8
+    nx: 15.5.1
   bin:
     tao: index.js
-  checksum: 31780cb215dcf45507dffed1d1a730c031de8d312c35f3d6b544fd92b951e46cae743580e7fa748467cf313d1131373105ccbbd8785163bb66d1fbceacf122c2
+  checksum: d884a8a62356dd7babdd26789531499ad95cc5c37dd22c04a381896d8f70a95b1eba52e3792d04df862cc0cad22ec2d609c9ab47a995413cdf4add9ac7ce628e
   languageName: node
   linkType: hard
 
@@ -1465,10 +1465,15 @@ __metadata:
   dependencies:
     "@neodx/autobuild": 0.0.4
     "@swc/helpers": 0.4.14
+    effector: 22.5.0
     eslint: 8.31.0
     eslint-kit: 6.11.0
     patronum: 1.14.1
     typescript: 4.9.4
+    vite: 4.0.4
+    vitest: 0.27.1
+  peerDependencies:
+    effector: "*"
   languageName: unknown
   linkType: soft
 
@@ -3432,6 +3437,13 @@ __metadata:
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
   checksum: 7d00d7cd8e49b9afa762a813faac332dee781932d6f2c848dc348939c4253f1d4564341b7af1d041853bc3f32c2ef141b58e0a4d9862c17a7f08f68df1e0f1ed
+  languageName: node
+  linkType: hard
+
+"effector@npm:22.5.0":
+  version: 22.5.0
+  resolution: "effector@npm:22.5.0"
+  checksum: d89d6005e38a49826023298849a8838ae7c753627ba729fec0c21ddef4ba90ec682b0401ea7b7c51ee00eb6ea00c2c0bf21c162a1eb840bc775c10797f6ed534
   languageName: node
   linkType: hard
 
@@ -6287,12 +6299,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:15.4.8":
-  version: 15.4.8
-  resolution: "nx@npm:15.4.8"
+"nx@npm:15.5.1":
+  version: 15.5.1
+  resolution: "nx@npm:15.5.1"
   dependencies:
-    "@nrwl/cli": 15.4.8
-    "@nrwl/tao": 15.4.8
+    "@nrwl/cli": 15.5.1
+    "@nrwl/tao": 15.5.1
     "@parcel/watcher": 2.0.4
     "@yarnpkg/lockfile": ^1.1.0
     "@yarnpkg/parsers": ^3.0.0-rc.18
@@ -6336,7 +6348,7 @@ __metadata:
       optional: true
   bin:
     nx: bin/nx.js
-  checksum: a628ea59b2e340b8812f38d22f4b7f60fdb5cf9db8d798381e2adbe0fea14f412b449591a9b2dcfb812aca5c9ac976adbf3795667316ee08142b51acb5232857
+  checksum: 010a38660eaff660aa13080c1247ed7606e35eb6eb5eb9cf6b921d6354f1590b84b2af4d8524a068dc804584cda0f61f3f2940c0aecee6214bfdd580a5aedf6e
   languageName: node
   linkType: hard
 
@@ -7222,12 +7234,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.2, prettier@npm:^2.3.2, prettier@npm:^2.7.1":
-  version: 2.8.2
-  resolution: "prettier@npm:2.8.2"
+"prettier@npm:2.8.3, prettier@npm:^2.3.2, prettier@npm:^2.7.1":
+  version: 2.8.3
+  resolution: "prettier@npm:2.8.3"
   bin:
     prettier: bin-prettier.js
-  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
+  checksum: 92f2ceb522d454370e02082aa74ad27388672f7cee8975028b59517c069fe643bdc73e322675c8faf2ff173d7a626d1a6389f26b474000308e793aa25fff46e5
   languageName: node
   linkType: hard
 
@@ -7390,10 +7402,10 @@ __metadata:
     husky: 8.0.3
     is-ci: 3.0.1
     lint-staged: 13.1.0
-    nx: 15.4.8
-    prettier: 2.8.2
+    nx: 15.5.1
+    prettier: 2.8.3
     typescript: 4.9.4
-    vite: 4.0.2
+    vite: 4.0.4
     vite-tsconfig-paths: 4.0.3
     vitest: 0.27.1
   languageName: unknown
@@ -8733,45 +8745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.0.2":
-  version: 4.0.2
-  resolution: "vite@npm:4.0.2"
-  dependencies:
-    esbuild: ^0.16.3
-    fsevents: ~2.3.2
-    postcss: ^8.4.20
-    resolve: ^1.22.1
-    rollup: ^3.7.0
-  peerDependencies:
-    "@types/node": ">= 14"
-    less: "*"
-    sass: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    less:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: b259782d83f293289f1cd7802cc525c75691fd45a1ded74e58365b5bff8f93f255daad4480269cda1660bf831f628b7a7224c9f591f039b5c0ccf351a8ee04ee
-  languageName: node
-  linkType: hard
-
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.0.4":
+"vite@npm:4.0.4, vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.0.4":
   version: 4.0.4
   resolution: "vite@npm:4.0.4"
   dependencies:
