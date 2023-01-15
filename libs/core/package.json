@@ -3,28 +3,45 @@
   "description": "Framework agnostic forms",
   "packageManager": "yarn@3.2.0",
   "version": "0.0.1",
+  "source": "index.ts",
   "sideEffects": false,
   "scripts": {
     "typecheck": "tsc --noEmit",
     "clean": "yarn dlx rimraf dist",
-    "build": "autobuild",
+    "build": "yarn build-auto && yarn build-vite && yarn build-micro",
+    "build-auto": "autobuild",
+    "build-vite": "vite build",
+    "build-micro": "microbundle",
     "test": "vitest run",
     "lint": "eslint src"
   },
   "devDependencies": {
-    "@neodx/autobuild": "0.0.4",
+    "@neodx/autobuild": "0.0.5",
+    "@neodx/std": "0.0.2",
     "@swc/helpers": "0.4.14",
     "effector": "22.5.0",
     "eslint": "8.31.0",
     "eslint-kit": "6.11.0",
+    "microbundle": "0.15.1",
     "typescript": "4.9.4",
     "vite": "4.0.4",
     "vitest": "0.27.1"
   },
   "dependencies": {
-    "patronum": "1.14.1"
+    "patronum": "1.14.1",
+    "type-fest": "3.5.1"
   },
   "peerDependencies": {
     "effector": "*"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   }
 }

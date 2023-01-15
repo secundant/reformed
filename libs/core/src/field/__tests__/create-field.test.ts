@@ -1,5 +1,6 @@
-import { allSettled, createStore, fork, is } from 'effector';
+import { allSettled, createEvent, createStore, fork, is, sample } from 'effector';
 import { describe, expect, test } from 'vitest';
+import { assertBaseFieldPublicApi } from '../../shared/test-utils';
 import { createField } from '../create-field';
 
 describe('createField', () => {
@@ -7,14 +8,14 @@ describe('createField', () => {
     const field = createField({ defaultValue: 'value' });
     const scope = fork();
 
-    expect(field.$value).toSatisfy(is.store);
-    expect(field.$dirty).toSatisfy(is.store);
-    expect(field.$blurred).toSatisfy(is.store);
-    expect(field.$focused).toSatisfy(is.store);
-    expect(field.$pristine).toSatisfy(is.store);
+    assertBaseFieldPublicApi(field);
 
-    expect(field.change).toSatisfy(is.event);
+    expect(field.$value).toSatisfy(is.store);
+
+    expect(field.blur).toSatisfy(is.event);
+    expect(field.focus).toSatisfy(is.event);
     expect(field.reset).toSatisfy(is.event);
+    expect(field.change).toSatisfy(is.event);
 
     expect(scope.getState(field.$value)).toBe('value');
   });
@@ -65,6 +66,77 @@ describe('createField', () => {
       expect(scope.getState(field.$value)).toBe('before');
       await allSettled(field.reset, { scope });
       expect(scope.getState(field.$value)).toBe('after');
+    });
+  });
+
+  describe('disabled', () => {
+    test('should prevent updates if field is disabled by default', async () => {
+      const field = createField({ disabled: true });
+      const scope = fork();
+
+      expect(scope.getState(field.$disabled)).toBeTruthy();
+      expect(scope.getState(field.$value)).toBeNull();
+      await allSettled(field.change, { scope, params: 123 });
+      expect(scope.getState(field.$value)).toBeNull();
+      await allSettled(field.$disabled, { scope, params: false });
+      await allSettled(field.change, { scope, params: 123 });
+      expect(scope.getState(field.$value)).toBe(123);
+    });
+
+    test('should support external store', async () => {
+      const $disabled = createStore(false);
+      const field = createField({ disabled: $disabled, defaultValue: 0 });
+      const scope = fork();
+
+      await allSettled(field.change, { scope, params: 1 });
+
+      expect(scope.getState(field.$value)).toBe(1);
+      expect(scope.getState(field.$disabled)).toBeFalsy();
+
+      await allSettled($disabled, { scope, params: true });
+      await allSettled(field.change, { scope, params: 2 });
+
+      expect(scope.getState(field.$value)).toBe(1);
+      expect(scope.getState(field.$disabled)).toBeTruthy();
+    });
+
+    test('should react on flow "click -> [toggle disabled, increment]"', async () => {
+      const buttonClicked = createEvent();
+      const increment = createEvent();
+      const field = createField({ disabled: false, defaultValue: 0 });
+
+      sample({
+        clock: buttonClicked,
+        source: field.$disabled,
+        fn: disabled => !disabled,
+        target: [field.$disabled, increment]
+      });
+      sample({
+        clock: increment,
+        source: field.$value,
+        fn: value => value + 1,
+        target: field.change
+      });
+
+      const scope = fork();
+
+      await allSettled(field.change, { scope, params: 1 });
+      await allSettled(buttonClicked, { scope });
+
+      expect(scope.getState(field.$value)).toBe(1);
+      expect(scope.getState(field.$disabled)).toBeTruthy();
+
+      await allSettled(buttonClicked, { scope });
+
+      expect(scope.getState(field.$value)).toBe(2);
+      expect(scope.getState(field.$disabled)).toBeFalsy();
+
+      await allSettled(buttonClicked, { scope });
+      await allSettled(buttonClicked, { scope });
+      await allSettled(buttonClicked, { scope });
+
+      expect(scope.getState(field.$value)).toBe(3);
+      expect(scope.getState(field.$disabled)).toBeTruthy();
     });
   });
 
