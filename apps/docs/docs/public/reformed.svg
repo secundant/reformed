@@ -1,0 +1,23 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_15_16)">
+<rect width="256" height="256" fill="url(#paint0_linear_15_16)"/>
+<rect width="56" height="256" fill="white" fill-opacity="0.25"/>
+</g>
+<rect x="96" y="184" width="128" height="32" rx="16" fill="white" fill-opacity="0.25"/>
+<rect x="32" y="176" width="48" height="48" rx="24" fill="white"/>
+<rect x="40" y="184" width="32" height="32" rx="16" fill="#CF6429"/>
+<rect x="32" y="104" width="192" height="48" rx="24" fill="white" fill-opacity="0.25"/>
+<rect x="32" y="104" width="128" height="48" rx="24" fill="white"/>
+<rect x="40" y="112" width="112" height="32" rx="16" fill="#CF6429"/>
+<rect x="32" y="32" width="192" height="48" rx="24" fill="white"/>
+<rect x="40" y="40" width="176" height="32" rx="16" fill="#CF6429"/>
+<defs>
+<linearGradient id="paint0_linear_15_16" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E1B558"/>
+<stop offset="1" stop-color="#CF6429"/>
+</linearGradient>
+<clipPath id="clip0_15_16">
+<rect width="256" height="256" rx="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>

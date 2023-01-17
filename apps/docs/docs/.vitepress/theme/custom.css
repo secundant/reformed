@@ -1,10 +1,12 @@
 :root {
-  --vp-c-brand: #8500ee;
-  --vp-c-brand-light: #8500ee;
-  --vp-c-brand-dark: #6713d1;
-  --vp-button-brand-bg: #6713d1;
-  --vp-button-brand-hover-border: #8500ee;
-  --vp-button-brand-active-border: #8500ee;
-  --vp-link-color: #a200ee;
-  --vp-link-color-hover: #a200ee;
+  --vp-c-brand: #ffb029;
+  --vp-c-brand-light: #ffb029;
+  --vp-button-brand-hover-border: #ffb029;
+  --vp-button-brand-active-border: #ffb029;
+
+  --vp-c-brand-dark: #fc9f00;
+  --vp-button-brand-bg: #fc9f00;
+
+  --vp-link-color: #ffc055;
+  --vp-link-color-hover: #ffc055;
 }
