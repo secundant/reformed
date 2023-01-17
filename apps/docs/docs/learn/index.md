@@ -31,7 +31,7 @@ npm install @reformed/core effector
 
 ## First steps
 
-- Learn about [Fields](/tutorial/intro/fields.md)
+- Learn about [Fields](/learn/quick-start/fields.md)
 
 ### First fields
 
@@ -53,31 +53,10 @@ sample({
   fn: names => names.filter(Boolean).join(' '),
   target: fullName.change
 });
-```
-
-### Validation
-
-#### Default
-
-```ts
-const name = createField({
-  defaultValue: 0,
-  validate: value => value <= 10 && 'should be gt than 10'
+sample({
+  clock: buttonClicked,
+  source: fields.$value,
+  filter: fields.$valid,
+  target: sendDataFx
 });
-```
-
-#### Modes
-
-```ts
-const name = createField({
-  defaultValue: 0,
-  validate: value => value <= 10 && 'should be gt than 10',
-  validateOn: 'blur'
-});
-```
-
-### Dependent fields
-
-```ts
-
 ```

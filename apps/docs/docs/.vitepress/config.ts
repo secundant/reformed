@@ -9,7 +9,7 @@ export default defineConfig({
   outDir: resolve(__dirname, '..', 'dist'),
   themeConfig: {
     siteTitle: 'Reformed',
-    logo: '/reformed.png',
+    logo: '/reformed.svg',
     footer: {
       message: '@secundant (Dmitry Remezov)',
       copyright: 'Copyright © 2023'
@@ -22,25 +22,25 @@ export default defineConfig({
       }
     ],
     sidebar: {
-      '/': [
+      '/learn': [
         {
-          text: 'Tutorial',
+          text: 'Learn',
           collapsible: true,
           items: [
             {
               text: 'Getting started',
-              link: '/tutorial/'
+              link: '/learn/'
             },
             {
               text: 'Intro',
               items: [
                 {
-                  text: 'Fields',
-                  link: '/tutorial/intro/fields'
+                  text: 'Create fields',
+                  link: '/learn/quick-start/create-fields'
                 },
                 {
-                  text: 'Dynamic',
-                  link: '/tutorial/intro/dynamic'
+                  text: 'Combine fields',
+                  link: '/learn/intro/dynamic'
                 }
               ]
             }
@@ -55,6 +55,17 @@ export default defineConfig({
             }
           ]
         }
+      ],
+      '/api': [
+        {
+          text: 'Field',
+          items: [
+            {
+              text: 'Field',
+              link: '/api/entities/field'
+            }
+          ]
+        }
       ]
     },
     editLink: {
@@ -62,9 +73,22 @@ export default defineConfig({
     },
     nav: [
       {
-        text: 'Tutorial',
-        link: '/tutorial/',
-        activeMatch: '^/(tutorial)/'
+        text: 'Learn',
+        link: '/learn/',
+        activeMatch: '^/(learn)/'
+      },
+      {
+        text: 'API',
+        link: '/api/',
+        activeMatch: '^/(api)/'
+      },
+      {
+        text: 'Roadmap',
+        link: '/roadmap'
+      },
+      {
+        text: 'Releases policy',
+        link: '/statements/releases-policy'
       }
     ]
   },

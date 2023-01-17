@@ -11,7 +11,7 @@ const field = createField({
 });
 
 sample({
-  clock: field.dirty,
+  clock: field.$value,
   filter: Boolean,
   target: loadMyDataDx
 });
