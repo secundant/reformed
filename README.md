@@ -1,31 +1,25 @@
 # Reformed
 
-Forms as business logic.
+Forms are business logic.
 
 ```tsx
-import { createHtmlForm } from '@reformed/html';
+import { createHtmlForm, createHtmlField } from '@reformed/html';
 import { Form, useForm } from '@reformed/react';
 
 const form = createHtmlForm({
   fields: {
-    login: [
-      '',
-      {
-        required: true
-      }
-    ],
-    password: [
-      '',
-      {
-        required: true
-      }
-    ],
-    comfirmPassword: [
-      '',
-      {
-        required: true
-      }
-    ]
+    login: createHtmlField({
+      required: true
+    }),
+    password: createHtmlField({
+      required: true
+    }),
+    comfirmPassword: createHtmlField({
+      required: true
+    }),
+    rememberMe: createHtmlField({
+      type: Boolean
+    })
   },
   validate: {
     on: 'submit',
@@ -66,6 +60,9 @@ function MyForm() {
       </FieldLayout>
       <FieldLayout label="Confirm password">
         <input type="password" {...register('confirmPassword')} />
+      </FieldLayout>
+      <FieldLayout type="control" label="Remember me?">
+        <input {...register('rememberMe')} />
       </FieldLayout>
       <Button type="submit">Login</Button>
     </Form>
