@@ -6,7 +6,7 @@
   "source": "index.ts",
   "sideEffects": false,
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "vitest typecheck --run",
     "clean": "yarn dlx rimraf dist",
     "build": "yarn build-auto && yarn build-vite && yarn build-micro",
     "build-auto": "autobuild",

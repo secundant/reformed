@@ -3,14 +3,14 @@ import { not } from 'patronum';
 import { SourcedValue, toStore } from '../shared/effector';
 import { createKind } from '../shared/internals';
 import { False, True } from '../shared/std';
-import type { BaseField } from './types';
+import type { BaseField } from '../shared/types';
 
 export interface CreateFieldParams<Value> {
   defaultValue?: SourcedValue<Value>;
   disabled?: SourcedValue<boolean>;
 }
 
-export interface Field<Value> extends BaseField<Value> {
+export interface Field<Value> extends BaseField<Value, Value> {
   /**
    * Disabled fields don't react on `change` event.
    * @todo should it reset $focused and prevent focus?
@@ -19,8 +19,6 @@ export interface Field<Value> extends BaseField<Value> {
 
   blur: Event<void>;
   focus: Event<void>;
-  reset: Event<void>;
-  change: Event<Value>;
   /**
    * @internal Internal API
    */

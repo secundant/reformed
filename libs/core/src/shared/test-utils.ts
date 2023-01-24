@@ -1,6 +1,6 @@
 import { is } from 'effector';
 import { expect } from 'vitest';
-import type { BaseField } from '../field/types';
+import type { BaseField } from './types';
 
 export function assertBaseFieldPublicApi(field: BaseField) {
   expect(field.$value).toSatisfy(is.store);

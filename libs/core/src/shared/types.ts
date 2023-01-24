@@ -1,8 +1,6 @@
-import type { Store } from 'effector';
+import type { Event, Store } from 'effector';
 
-export type BaseFieldsShape = Record<string, BaseField>;
-
-export interface BaseField<Value = any> {
+export interface BaseField<Value = any, ChangingValue = Value> {
   /**
    * `true` if field isn't focused
    * @alias not($focused)
@@ -40,12 +38,18 @@ export interface BaseField<Value = any> {
    */
   $value: Store<Value>;
   /**
+   * Change field value
+   */
+  change: Event<ChangingValue>;
+  /**
+   * Reset everything
+   */
+  reset: Event<void>;
+  /**
    * @internal Internal API
    */
   __: unknown;
 }
 
-export type FieldValue<T> = T extends BaseField<infer Value> ? Value : never;
-export type FieldsShapeValue<T> = {
-  [Key in keyof T]: FieldValue<T[Key]>;
-};
+export type GetFieldValue<T> = T extends BaseField<infer Value, any> ? Value : never;
+export type GetFieldChangeValue<T> = T extends BaseField<any, infer Value> ? Value : never;
