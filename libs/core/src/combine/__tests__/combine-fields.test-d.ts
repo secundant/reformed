@@ -81,7 +81,9 @@ describe('combineFields - types', () => {
     });
 
     expectTypeOf(combined.fields.a).toEqualTypeOf<Field<'foo'>>();
-    expectTypeOf(combined.fields.b.fields.c).toEqualTypeOf<
+    expectTypeOf(combined.fields.b.fields.c.fields.d).toEqualTypeOf<Field<'bar'>>();
+
+    expectTypeOf(combined.fields.b.fields.c).toMatchTypeOf<
       CombinedField<{
         d: Field<'bar'>;
       }>

@@ -11,3 +11,8 @@ export function assertBaseFieldPublicApi(field: BaseField) {
   expect(field.$modified).toSatisfy(is.store);
   expect(field.$pristine).toSatisfy(is.store);
 }
+
+export function expectArrayEqual<T>(left: T[], right: T[]) {
+  // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
+  expect([...left].sort()).toEqual([...right].sort());
+}
