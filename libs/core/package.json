@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@neodx/autobuild": "0.0.5",
-    "@neodx/std": "0.0.2",
     "@swc/helpers": "0.4.14",
     "effector": "22.5.0",
     "eslint": "8.31.0",
@@ -28,6 +27,7 @@
     "vitest": "0.27.1"
   },
   "dependencies": {
+    "@neodx/std": "0.0.2",
     "patronum": "1.14.1",
     "type-fest": "3.5.1"
   },
