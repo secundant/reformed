@@ -4,7 +4,8 @@ title: Welcome
 
 hero:
   name: Reformed
-  text: Brings business logic to forms
+  text: Forms are business logic
+  tagline: Declarative framework-agnostic forms built on top of Effector
   image:
     src: /reformed.svg
   actions:

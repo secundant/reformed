@@ -2,27 +2,77 @@
 
 Creates single static [Field](/api/entities/field)
 
+:::danger
+WIP
+:::
+
 ## Formulae
 
-### `createField({ defaultValue = null, disabled = true } = {})`
+### `createField({ defaultValue?, disabled?, valueEq?, validate? })`
 
-### `createField({ defaultValue? })`
+Creates basic [Field](../entities/field).
 
-Creates basic [Field](/api/entities/field) with default value
+## Config details
+
+### `defaultValue`
+
+Optional default value or store with default value
+
+- type: `SourceValue<Value>`
+- default: `null`
 
 ```ts
 const name = createField({
-  defaultValue: ''
+  defaultValue: 'John'
+});
+const copyName = createField({
+  defaultValue: name.$value
+});
+
+sample({
+  clock: resetCopied,
+  target: copyName.reset // After reset copyName's value will be taken from name.$value
 });
 ```
 
-### `createField({ defaultValue, validate: Validator })`
+### `disabled`
 
-Creates [Field](/api/entities/field) with single validation
+Disabled fields will ignore any `change` or `focus` commands.
+
+- type: `SourceValue<boolean>`
+- default: `false`
+
+You can pass plain boolean value:
 
 ```ts
-const age = createField({
-  defaultValue: 0,
-  validate: value => value < 10 && 'should be gt than 10'
+const field = createField({ defaultValue: '', disabled: true });
+```
+
+Or boolean store:
+
+```ts
+const $mode = createStore<'edit' | 'view'>('view');
+const disabledStore = createField({
+  defaultValue: '',
+  // Note: now it's DerivedStore (can't be changed externally)
+  disabled: $mode.map(mode => mode === 'view')
 });
 ```
+
+### `valueEq`
+
+Values equality comparator
+
+- type: `(left: Value, right: Value) => boolean`
+- default: `Object.is`
+
+```ts
+const field = createField<string[]>({
+  defaultValue: [],
+  valueEq: shallowEqualArray
+});
+```
+
+### `validate`: `ValidationRule | ValidationConfig | ValidationConfig[]`
+
+- `ValidationRule`: `(value: Value) => ValidationResult`

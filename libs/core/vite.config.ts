@@ -14,6 +14,6 @@ export default defineConfig({
       external: ['effector']
     }
   },
-  test: { typecheck: { ignoreSourceErrors: true }, passWithNoTests: true },
+  test: { typecheck: { ignoreSourceErrors: false }, passWithNoTests: true },
   plugins: [tsconfigPaths()]
 });

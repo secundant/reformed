@@ -32,6 +32,10 @@ export default defineConfig({
               link: '/learn/'
             },
             {
+              text: 'Motivation',
+              link: '/learn/motivation'
+            },
+            {
               text: 'Intro',
               items: [
                 {
