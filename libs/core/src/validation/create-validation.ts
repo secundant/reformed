@@ -35,8 +35,8 @@ export interface BaseFieldValidationState extends ErrorsState<ValidationError> {
 
 export function createValidation<Value>({ config = [], $value }: CreateValidationParams<Value>) {
   const configs = toArray(typeof config === 'function' ? { fn: config } : config);
-  const rules = configs.map(({ fn, on }) => ({
-    on: toArray(on ?? defaultValidationTrigger),
+  const rules = configs.map(({ fn, on = defaultValidationTrigger }) => ({
+    on: toArray(on),
     ...createRule(fn)
   }));
 
@@ -55,7 +55,7 @@ export function createValidation<Value>({ config = [], $value }: CreateValidatio
   const errorsState = createErrorsState(
     combine(
       rules.map(({ $errors }) => $errors),
-      errors => errors.flat()
+      errors => errors.filter(Boolean).flat() as ValidationError[]
     )
   );
 
@@ -90,4 +90,4 @@ export function createValidation<Value>({ config = [], $value }: CreateValidatio
   };
 }
 
-const defaultValidationTrigger = 'blur' as const;
+const defaultValidationTrigger = ['blur', 'submit'] as const;

@@ -16,20 +16,18 @@
     "lint": "eslint src"
   },
   "devDependencies": {
-    "@neodx/autobuild": "0.0.5",
+    "@neodx/autobuild": "0.0.8",
     "@swc/helpers": "0.4.14",
     "effector": "22.5.0",
-    "eslint": "8.31.0",
+    "eslint": "8.33.0",
     "eslint-kit": "6.11.0",
     "microbundle": "0.15.1",
-    "typescript": "4.9.4",
-    "vite": "4.0.4",
-    "vitest": "0.27.1"
+    "typescript": "4.9.5"
   },
   "dependencies": {
-    "@neodx/std": "0.0.2",
+    "@neodx/std": "0.0.3",
     "patronum": "1.14.1",
-    "type-fest": "3.5.1"
+    "type-fest": "3.5.4"
   },
   "peerDependencies": {
     "effector": "*"

@@ -19,8 +19,7 @@ export function createRule<Value>(fn: RuleFn<Value>) {
   const reset = createEvent();
   const validateFx = createEffect(fn);
 
-  const $result = restore(validateFx.doneData, null).reset(reset);
-  const $errors = $result.map(toRuleResult);
+  const $errors = restore(validateFx.doneData.map(toRuleResult), null).reset(reset);
 
   return { reset, $errors, validateFx };
 }
